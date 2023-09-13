@@ -1,0 +1,42 @@
+body{
+    color: #f6f1f1;
+    overflow-x: hidden;
+    background-color: #040d12;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+#introduction-div{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+#gamedisplay-div{
+    border: 1px solid greenyellow;
+    display: flex;
+    flex-direction: column;
+}
+#weaponchoice-div{
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-around;
+}
+.choicedisplay-player, .choicedisplay-computer{
+    border: 3px solid #146C94;
+    border-radius: 5px;
+    height: 150px;
+    width: 150px;
+    fill: #f6f1f1;
+}
+
+#points-div{
+    display: flex;
+    justify-content: space-around;
+}
+#weapons-container{
+    display: flex;
+    justify-content: space-around;
+}
+.weapon-div{
+    display: flex;
+}

@@ -1,73 +1,102 @@
-
-
 const choices = ["ROCK", "PAPER", "SCISSOR"];
-let computerPoints = 0;
-let userPoints = 0;
-keepGoing = true;
+playAgain = true;
 
-while(keepGoing){
+    let computerPoints = 0;
+    let userPoints = 0;
 
-    function getRandomElementFromArray(array) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
-    }
+    keepGoing = true;
+    const event = window.event;
 
-    let computerChoice = getRandomElementFromArray(choices);
-    let userChoice = prompt("Enter your choice: ").toUpperCase();
+    while(keepGoing){
 
-    console.log(`User Choice: ${userChoice} || Computer Choice: ${computerChoice}`)
-    function Rock(){
-        if(userChoice === "ROCK"){
-            console.log(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else if(userChoice === "PAPER"){
-            userPoints = userPoints+1;
-            console.log(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else if(userChoice === "SCISSOR"){
-            computerPoints = computerPoints+1;
-            console.log(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else{console.log("Wrong Input");}
-    }
+        function getChoice(event){
 
-    function Paper(){
-        if(userChoice === "PAPER"){
-            console.log(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else if(userChoice === "SCISSOR"){
-            userPoints = userPoints+1;
-            console.log(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else if(userChoice === "ROCK"){
-            computerPoints = computerPoints+1;
-            console.log(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else{console.log("Wrong Input");}
-    }
-    function Scissor(){
-        if(userChoice === "SCISSOR"){
-            console.log(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else if(userChoice === "ROCK"){
-            userPoints = userPoints+1;
-            console.log(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else if(userChoice === "PAPER"){
-            computerPoints = computerPoints+1;
-            console.log(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-        }else{console.log("Wrong Input!");}
-    }
+            const weapon = event.target.classList.contains('weapon');
 
+            function getRandomElementFromArray(array) {
+                const randomIndex = Math.floor(Math.random() * array.length);
+                return array[randomIndex];
+            }
 
-    if(computerChoice === "ROCK"){
-        Rock();
-    }else if(computerChoice === "PAPER"){
-        Paper();
-    }else if(computerChoice === "SCISSOR"){
-        Scissor();
-    }
-    console.log("<!----------------!>")
+            function getUserChoice(event){
+                if(weapon){
+                    let userChoiceId = event.target.id;
+                    return  userChoiceId;
+                }
+            }
+            let computerChoice = getRandomElementFromArray(choices);
+            let userChoice = getUserChoice();
 
-    if(computerPoints === 5 || userPoints === 5){
+            console.log(userChoice, computerChoice);
+        }
+
+        const weaponsContainer = document.querySelector('#weapons-container');
+        weaponsContainer.addEventListener('click', getChoice);
+
         keepGoing = false;
-    }else{
-        keepGoing = true;
+/*
+        function Rock(){
+            if(userChoice === "ROCK"){
+                alert(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else if(userChoice === "PAPER"){
+                userPoints = userPoints+1;
+                alert(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else if(userChoice === "SCISSOR"){
+                computerPoints = computerPoints+1;
+                alert(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else{alert("Wrong Input");}
+        }
+
+        function Paper(){
+            if(userChoice === "PAPER"){
+                //alert(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else if(userChoice === "SCISSOR"){
+                userPoints = userPoints+1;
+                //alert(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else if(userChoice === "ROCK"){
+                computerPoints = computerPoints+1;
+                //alert(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }//else{//alert("Wrong Input");}
+        }
+        function Scissor(){
+            if(userChoice === "SCISSOR"){
+                //alert(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else if(userChoice === "ROCK"){
+                userPoints = userPoints+1;
+               // alert(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else if(userChoice === "PAPER"){
+                computerPoints = computerPoints+1;
+                //alert(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+            }else{alert("Wrong Input!");}
+        }
+
+
+        if(computerChoice === "ROCK"){
+            Rock();
+        }else if(computerChoice === "PAPER"){
+            Paper();
+        }else if(computerChoice === "SCISSOR"){
+            Scissor();
+        }
+
+        if(computerPoints === 5 || userPoints === 5){
+            keepGoing = false;
+        }else{
+            keepGoing = true;
+        }
+        */
     }
-}
-if(computerPoints === 5){
-    console.log("Computer Won! ");
-}else{console.log("User Won")}
+
+    if(computerPoints === 5){
+        alert("Computer Won! ");
+    }else{alert("User Won")}
+
+/*
+    let gameBreaker = prompt("Enter 'Y' to play again and 'N' to exit: ");
+    if(gameBreaker.toUpperCase === 'Y'){
+        playAgain = true;
+    }else{
+        playAgain = false;
+    }
+    */
 
