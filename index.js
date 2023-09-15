@@ -1,73 +1,101 @@
 const choices = ["ROCK", "PAPER", "SCISSOR"];
 playAgain = true;
-
+    let userName =  'userName';//prompt("Enter your Username: ");
     let computerPoints = 0;
     let userPoints = 0;
+    let i=0;
 
     keepGoing = true;
-    const event = window.event;
+    let userChoice = "";
 
-    while(keepGoing){
+    const rock = document.querySelector('#ROCK');
+    const paper = document.querySelector('#PAPER');
+    const scissor = document.querySelector('#SCISSOR');
+    function getId(e){
+        userChoice = e.target.id()
+        console.log(userChoice);
+        return userChoice;
+    }
+    /*rock.addEventListener('click', function(e){
+        userChoice = rock.getAttribute('id');
+        return userChoice;
+    }); */
+    scissor.addEventListener('click', function(e){
+        userChoice = scissor.getAttribute('id');
+        return userChoice;
+    });
+    paper.addEventListener('click', function(e){
+        userChoice = paper.getAttribute('id');
+        console.log(userChoice);
+    });
+    let userPointsDisplay = document.querySelector('#user-points');
+    let computerPointsDisplay = document.querySelector('#computer-points');
+    let remarks = document.querySelector('#remarks');
 
-        function getChoice(event){
+    console.log(`${userChoice} is returned `);
 
-            const weapon = event.target.classList.contains('weapon');
-
-            function getRandomElementFromArray(array) {
-                const randomIndex = Math.floor(Math.random() * array.length);
-                return array[randomIndex];
-            }
-
-            function getUserChoice(event){
-                if(weapon){
-                    let userChoiceId = event.target.id;
-                    return  userChoiceId;
-                }
-            }
-            let computerChoice = getRandomElementFromArray(choices);
-            let userChoice = getUserChoice();
-
-            console.log(userChoice, computerChoice);
-        }
-
-        const weaponsContainer = document.querySelector('#weapons-container');
-        weaponsContainer.addEventListener('click', getChoice);
-
-        keepGoing = false;
-/*
+    while(keepGoing && userChoice != ""){
+        console.log('inside while');
+    function getRandomElementFromArray(array) {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        return array[randomIndex];
+    }
+    let computerChoice = getRandomElementFromArray(choices);
+   
         function Rock(){
+            console.log(`${userChoice} in rock`);
             if(userChoice === "ROCK"){
-                alert(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+                remarks.innerText =("It's a DRAW! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
             }else if(userChoice === "PAPER"){
                 userPoints = userPoints+1;
-                alert(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+                remarks.innerText =("It's a WIN ! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
             }else if(userChoice === "SCISSOR"){
                 computerPoints = computerPoints+1;
-                alert(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-            }else{alert("Wrong Input");}
+                remarks.innerText =("You LOST! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
+            }else{remarks.innerText =("wrong Input ");}
         }
 
         function Paper(){
+            console.log(`${userChoice} in scik`);
             if(userChoice === "PAPER"){
-                //alert(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+                remarks.innerText =("It's a DRAW! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
             }else if(userChoice === "SCISSOR"){
                 userPoints = userPoints+1;
-                //alert(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+                remarks.innerText =("It's a WIN ! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
             }else if(userChoice === "ROCK"){
                 computerPoints = computerPoints+1;
-                //alert(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-            }//else{//alert("Wrong Input");}
+                remarks.innerText =("You LOST! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
+            }else{remarks.innerText =("wrong Input ");}
         }
         function Scissor(){
+            console.log(`${userChoice} in paapck`);
             if(userChoice === "SCISSOR"){
-                //alert(`Draw! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+                remarks.innerText =("It's a DRAW! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
             }else if(userChoice === "ROCK"){
                 userPoints = userPoints+1;
-               // alert(`You Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
+                remarks.innerText =("It's a WIN ! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
             }else if(userChoice === "PAPER"){
                 computerPoints = computerPoints+1;
-                //alert(`I Win! User Points: ${userPoints} | Computer Points: ${computerPoints}`);
-            }else{alert("Wrong Input!");}
+                remarks.innerText =("You LOST! ");
+                userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+                computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
+            }else{remarks.innerText =("wrong Input ");}
         }
 
 
@@ -78,18 +106,20 @@ playAgain = true;
         }else if(computerChoice === "SCISSOR"){
             Scissor();
         }
-
-        if(computerPoints === 5 || userPoints === 5){
+        i++;
+        if(computerPoints === 5 || userPoints === 5 || i===5){
             keepGoing = false;
         }else{
             keepGoing = true;
         }
-        */
+
     }
 
     if(computerPoints === 5){
-        alert("Computer Won! ");
-    }else{alert("User Won")}
+        remarks.innerText = ("Computer Won This WAR! ");
+    }else if(userPoints===5){
+        remarks.innerText = ("Congratulations on saving Humanity!")
+    }else{remarks.innerText = ('No Game')};
 
 /*
     let gameBreaker = prompt("Enter 'Y' to play again and 'N' to exit: ");

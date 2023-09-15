@@ -1,99 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SPR-Game</title>
     <style>
-        .weapon{
-            padding: 0;
-            width: 100px;
-            height: 100px;
-        }
+      .weapon {
+        padding: 0;
+        width: 100px;
+        height: 100px;
+      }
     </style>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
     <div id="container">
-
+      <div id="game-container">
         <div id="introduction-div">
-            <div id="title-div">
-                <h1 id="title">
-                    Scissor-Paper-Rock Game
-                </h1>
-            </div>
-            <div id="story-div">
-                <p id="story">AI has taken over. "Life is what happens when you're busy making other plans." - John Lennon</p>
-            </div>
+          <div id="title-div">
+            <h1 id="title">Scissor-Paper-Rock Game</h1>
+          </div>
+          <div id="story-div">
+            <p id="story">
+              AI has taken over. "Life is what happens when you're busy making
+              other plans." - John Lennon
+            </p>
+          </div>
         </div>
         <div id="gamedisplay-div">
-            <div id="weaponchoosetext-div">
-                <h2 id="chooseweapon"> Choose Your Weapon.</h2>
-            </div>
-            <div id="weaponchoice-div">
-                <div id="playerchoice-container" class="choice-container">
-
-                    <div id="questionmark" class="initial-choice">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 -960 960 960" width="100" class="choicedisplay-player"><path d="M424-320q0-81 14.5-116.5T500-514q41-36 62.5-62.5T584-637q0-41-27.5-68T480-732q-51 0-77.5 31T365-638l-103-44q21-64 77-111t141-47q105 0 161.5 58.5T698-641q0 50-21.5 85.5T609-475q-49 47-59.5 71.5T539-320H424Zm56 240q-33 0-56.5-23.5T400-160q0-33 23.5-56.5T480-240q33 0 56.5 23.5T560-160q0 33-23.5 56.5T480-80Z"/></svg>
-                    </div>
-                    
-                    <div id="scissor-display" class="initital-choice">
-                        <img src="ui/Scissor.jpg" alt="" id="scissor" class="choicedisplay-player">
-                    </div>
-                    <div id="paper-display" class="initital-choice">
-                        <img src="ui/origami-warrior.jpg" alt="" id="paper" class="choicedisplay-player">
-                    </div>
-                    <div id="rock-display" class="initital-choice">
-                        <img src="UI/Rock.jpg" alt="" id="rock" class="choicedisplay-player">
-                        
-                    </div>
+          <div id="weaponchoosetext-div">
+            <h2 id="chooseweapon">Choose Your Weapon.</h2>
+          </div>
+          <div id="weaponchoice-div">
+            <div id="choice-display">
+              <div id="playerchoice-container" class="choice-container">
+                <div id="questionmark-div" class="initial-choice">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="100"
+                    viewBox="0 -960 960 960"
+                    width="100"
+                    id="questionmark"
+                    class="display",
+                  >
+                    <path
+                      d="M424-320q0-81 14.5-116.5T500-514q41-36 62.5-62.5T584-637q0-41-27.5-68T480-732q-51 0-77.5 31T365-638l-103-44q21-64 77-111t141-47q105 0 161.5 58.5T698-641q0 50-21.5 85.5T609-475q-49 47-59.5 71.5T539-320H424Zm56 240q-33 0-56.5-23.5T400-160q0-33 23.5-56.5T480-240q33 0 56.5 23.5T560-160q0 33-23.5 56.5T480-80Z"
+                    />
+                  </svg>
                 </div>
-                <div id="computerchoice-container" class="choice-container">
 
-                    <div id="questionmark" class="initial-choice">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="100" viewBox="0 -960 960 960" width="100" class="choicedisplay-computer"><path d="M424-320q0-81 14.5-116.5T500-514q41-36 62.5-62.5T584-637q0-41-27.5-68T480-732q-51 0-77.5 31T365-638l-103-44q21-64 77-111t141-47q105 0 161.5 58.5T698-641q0 50-21.5 85.5T609-475q-49 47-59.5 71.5T539-320H424Zm56 240q-33 0-56.5-23.5T400-160q0-33 23.5-56.5T480-240q33 0 56.5 23.5T560-160q0 33-23.5 56.5T480-80Z"/></svg>
-                    </div>
-                    <div id="scissor-display-computer" class="initital-choice">
-
-                    </div>
-                    <div id="paper-display-computer" class="initital-choice">
-                        
-                    </div>
-                    <div id="rock-display-computer" class="initital-choice">
-                        
-                    </div>
-                    
+                <div id="scissor-display" class="initital-choice">
+                  <img
+                    src="ui/Scissor.jpg"
+                    alt=""
+                    id="scissor-choice"
+                    class="choicedisplay-player"
+                  />
+                </div>
+                <div id="paper-display" class="initital-choice">
+                  <img
+                    src="ui/origami-warrior.jpg"
+                    alt=""
+                    id="paper-choice"
+                    class="choicedisplay-player"
+                  />
+                </div>
+                <div id="rock-display" class="initital-choice">
+                  <img
+                    src="UI/Rock.jpg"
+                    alt=""
+                    id="rock-choice"
+                    class="choicedisplay-player"
+                  />
+                </div>
+              </div>
+              <div id="computerchoice-container" class="choice-container">
+                <div id="questionmark-div-computer" class="initial-choice">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="100"
+                    viewBox="0 -960 960 960"
+                    width="100"
+                    id="questionmark-computer"
+                    class="display-computer"
+                  >
+                    <path
+                      d="M424-320q0-81 14.5-116.5T500-514q41-36 62.5-62.5T584-637q0-41-27.5-68T480-732q-51 0-77.5 31T365-638l-103-44q21-64 77-111t141-47q105 0 161.5 58.5T698-641q0 50-21.5 85.5T609-475q-49 47-59.5 71.5T539-320H424Zm56 240q-33 0-56.5-23.5T400-160q0-33 23.5-56.5T480-240q33 0 56.5 23.5T560-160q0 33-23.5 56.5T480-80Z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  id="scissor-display-computer"
+                  class="initital-choice"
+                >
+                <img
+                src="ui/Scissor.jpg"
+                alt=""
+                id="scissor-choice-computer"
+                class="choicedisplay-computer"/>
+                </div>
+                <div id="paper-display-computer" class="initital-choice">
+                    <img
+                    src="ui/origami-warrior.jpg"
+                    alt=""
+                    id="paper-choice-computer"
+                    class="choicedisplay-computer"
+                  />
+                </div>
+                <div id="rock-display-computer" class="initital-choice">
+                    <img
+                    src="UI/Rock.jpg"
+                    alt=""
+                    id="rock-choice-computer"
+                    class="choicedisplay-computer"
+                  />
+                </div>
+              </div>
             </div>
+
             <div id="points-div">
-                <p id="user">User: </p>
-                <p id="computer">Computer: </p>
+              <p id="user-points">User: 0</p>
+              <p id="computer-points">Computer: 0</p>
             </div>
             <div id="weapons-container">
-                <div id="scissor-div" class="weapon-div" >
-                    <button id="SCISSOR" class="weapon">
-                        <img src="ui/Scissor.jpg" alt="Scissor" id="SCISSOR" class="weapon">
-                    </button>
-                    <span>Scissor</span>
-                </div>
-                <div id="paper-div" class="weapon-div">
-                    <button id="PAPER" class="weapon">
-                        <img src="ui/origami-warrior.jpg" alt="paper" id="PAPER" class="weapon">
-                    </button>
-                    <span>Paper</span>
-                </div>
-                <div id="rock-div" class="weapon-div">
-                    <button id="ROCK" class="weapon">
-                        <img src="ui/Rock.jpg" alt="rock" id="ROCK" class="weapon">
-                    </button>
-                    <span>Rock</span>
-                </div>
+              <div id="scissor-div" class="weapon-div">
+                <button id="SCISSOR" class="weapon-button">
+                  <img
+                    src="ui/Scissor.jpg"
+                    alt="Scissor"
+                    id="SCISSOR"
+                    class="weapon"
+                  />
+                </button>
+                <span>Scissor</span>
+              </div>
+              <div id="paper-div" class="weapon-div">
+                <button id="PAPER" class="weapon-button">
+                  <img
+                    src="ui/origami-warrior.jpg"
+                    alt="paper"
+                    id="PAPER"
+                    class="weapon"
+                  />
+                </button>
+                <span>Paper</span>
+              </div>
+              <div id="rock-div" class="weapon-div">
+                <button id="ROCK" class="weapon-button">
+                  <img src="ui/Rock.jpg" alt="rock" id="ROCK" class="weapon" />
+                </button>
+                <span>Rock</span>
+              </div>
             </div>
             <div id="reamrks-div">
-                <p id="remarks"> You won! </p>
+              <p id="remarks">Let the Game Begin!</p>
             </div>
+          </div>
         </div>
+     
     </div>
-</body>
-<script src="script.js"> </script>
+    <div id="end-game-container">
+        <div id="end-game-div">
+          <div id="end-tex-div">
+            <h3 id="end-text"></h3>
+          </div>
+          <div id="end-button-div">
+            <button id="end-button" onClick="window.location.reload();"></button>
+          </div>
+        </div>
+      </div>
+  </body>
+  <script src="script.js" defer></script>
 </html>
