@@ -11,15 +11,11 @@ playAgain = true;
     const rock = document.querySelector('#ROCK');
     const paper = document.querySelector('#PAPER');
     const scissor = document.querySelector('#SCISSOR');
-    function getId(e){
-        userChoice = e.target.id()
-        console.log(userChoice);
-        return userChoice;
-    }
-    /*rock.addEventListener('click', function(e){
+
+    rock.addEventListener('click', function(e){
         userChoice = rock.getAttribute('id');
         return userChoice;
-    }); */
+    });
     scissor.addEventListener('click', function(e){
         userChoice = scissor.getAttribute('id');
         return userChoice;
