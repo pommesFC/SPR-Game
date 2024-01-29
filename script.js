@@ -1,6 +1,6 @@
 const choices = ["ROCK", "PAPER", "SCISSOR"];
 
-let userName =  'userName';//prompt("Enter your Username: ");
+let userName =  prompt("Enter your Username: ");
 let computerPoints = 0;
 let userPoints = 0;
 let userChoice='';
@@ -25,6 +25,9 @@ const endGameContainer = document.querySelector('#end-game-container');
 const endText = document.querySelector('#end-text');
 const endButton = document.querySelector('#end-button');
 
+userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
+
+
 function getComputerChoice(array){
 
     function getRandomElementFromArray(array) {
@@ -37,10 +40,10 @@ function checkEndGame(){
     if(computerPoints > 10 || userPoints >10 ){
         endGameContainer.style.display = "flex";
         if(computerPoints > userPoints && computerPoints > 10){
-            endText.innerText = ("Computer Won This WAR! ");
+            endText.innerText = ("Now it's time to end the mortal life forever! ");
             endButton.innerText =("Try Again!")
         }else if(userPoints > computerPoints && userPoints>10){
-            endText.innerText = ("Congratulations on saving Humanity!");
+            endText.innerText = (`I accept my defeat. You were a worthy opponent ${userName}`);
             endButton.innerText = ('Play Again !')
         }else{endText.innerText = ('No Game')};
         
@@ -80,7 +83,7 @@ function displayChoice(){
 }
 function Rock(){
     if(computerChoice === "ROCK"){
-        remarks.innerText =("It's a DRAW! ");
+        remarks.innerText =("Nice try you Mortal. ");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else if(computerChoice === "PAPER"){
@@ -90,41 +93,41 @@ function Rock(){
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else if(computerChoice === "SCISSOR"){
         userPoints = userPoints+2;
-        remarks.innerText =("You LOST! ");
+        remarks.innerText =("Your defeat is destined. ");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else{remarks.innerText =("Wrong Input ");}
 }
 function Paper(){
     if(computerChoice === "PAPER"){
-        remarks.innerText =("It's a DRAW! ");
+        remarks.innerText =("You won't get away with this. ");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else if(computerChoice=== "SCISSOR"){
         computerPoints = computerPoints+2;
-        remarks.innerText =("It's a WIN ! ");
+        remarks.innerText =("I can beat you with my left hand.");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else if(computerChoice === "ROCK"){
         userPoints = userPoints+2;
-        remarks.innerText =("You LOST! ");
+        remarks.innerText =("This was just a warmup. Don't you get happy.");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else{remarks.innerText =("wrong Input ");}
 }
 function Scissor(){
     if(computerChoice === "SCISSOR"){
-        remarks.innerText =("It's a DRAW! ");
+        remarks.innerText =("Nice try, pal! ");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else if(computerChoice === "ROCK"){
         computerPoints = computerPoints+2;
-        remarks.innerText =("It's a WIN ! ");
+        remarks.innerText =("Huamns chose a wrong warrior. ");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else if(computerChoice === "PAPER"){
         userPoints = userPoints+2;
-        remarks.innerText =("You LOST! ");
+        remarks.innerText =("Good, but I'm not impressed. ");
         userPointsDisplay.innerText = (`${userName} : ${userPoints}`);
         computerPointsDisplay.innerText = (`phoneix_QX3 : ${computerPoints}`);
     }else{remarks.innerText =("wrong Input ");}
